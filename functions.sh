@@ -68,10 +68,13 @@ checkAndCreateFolder() {
 }
 
 
-# Función para limpiar la entrada eliminando puntos y espacios en blanco no deseados al principio y al final
+# Función para limpiar la entrada eliminando puntos y espacios en blanco no deseados al principio y al final,
+# manteniendo el guion medio si está presente en el medio del texto
 sanitizeInput() {
     local input="$1"
     # Eliminar puntos y espacios en blanco no deseados al principio y al final
     input=$(echo "$input" | sed 's/^[[:space:]]*\.//; s/\.$//; s/[[:space:]]*$//')
+    # Mantener el guion medio si está presente en el medio del texto
+    input=$(echo "$input" | sed 's/^\(.*\)-\(.*\)$/\1-\2/')
     echo "$input"
 }
