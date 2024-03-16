@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #inclusiones
-source /functions.sh
+source functions.sh
 
 # Definir max_length
 max_length=10  
@@ -68,19 +68,17 @@ checkAndCreateFolder "$tech_name" "$version"
 # Solicitar el nombre del proyecto
 read -p "Ingrese el nombre del proyecto: " project_name
 
-
-# Ruta de la estructura del proyecto
-base_path="$PWD/Proyects/$tech_name/$version"
-# Ruta al README.md dentro de la estructura del proyecto
-readme_path="$base_path/$camel_case_name/docs/README.md"
-
-
 # Eliminar espacios en blanco y acortar palabras
 project_name_formatted=$(formatProjectName "$project_name" "$max_length")
 formatted_name=$(echo "$project_name_formatted" | awk -v max="$max_length" '{gsub(/ /, ""); for(i=1;i<=NF;i++) if (length($i)>max) $i=substr($i,1,max); print}')
 
 # Formatear el nombre del proyecto como camelCase
 camel_case_name=$(toCamelCase "$formatted_name")
+
+# Ruta de la estructura del proyecto
+base_path="$PWD/Proyects/$tech_name/$version"
+# Ruta al README.md dentro de la estructura del proyecto
+readme_path="$base_path/$camel_case_name/docs/README.md"
 
 # Crear la estructura de carpetas para el proyecto dentro de la carpeta proyectsNes, tecnología y versión
 mkdir -p "$base_path/$camel_case_name/src"
@@ -135,3 +133,4 @@ echo -e "¡Muuu! Somos un equipo apasionado por la tecnología, siempre listos p
 chmod +x init_project.sh
 
 echo "Estructura de carpetas y archivos creada exitosamente para el proyecto $camel_case_name."
+stop
