@@ -53,3 +53,25 @@ splitCamelCase() {
     
     echo "$splitText"
 }
+# Función para verificar y crear la estructura de carpetas para tecnología y versión
+checkAndCreateFolder() {
+  local tech_folder="$PWD/Languages/$1"
+  local version_folder="$tech_folder/$2"
+
+  if [ ! -d "$tech_folder" ]; then
+    mkdir -p "$tech_folder"
+  fi
+
+  if [ ! -d "$version_folder" ]; then
+    mkdir -p "$version_folder"
+  fi
+}
+
+
+# Función para limpiar la entrada eliminando puntos y espacios en blanco no deseados al principio y al final
+sanitizeInput() {
+    local input="$1"
+    # Eliminar puntos y espacios en blanco no deseados al principio y al final
+    input=$(echo "$input" | sed 's/^[[:space:]]*\.//; s/\.$//; s/[[:space:]]*$//')
+    echo "$input"
+}
