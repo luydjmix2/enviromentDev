@@ -8,7 +8,7 @@ max_length=10
 # Obtener el nombre del directorio actual
 current_dir_name=$(basename "$PWD")
 # Nombre esperado del directorio desde el cual se debe ejecutar el script
-folderProyects="proyectsNes"
+folderProyects="enviromentDev"
 # Ruta de la estructura del proyecto
 readme_path="$base_path/$camel_case_name/docs/README.md"
 base_path="$PWD/$folderProyects/Proyects/$tech_name/$version"
