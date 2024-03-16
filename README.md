@@ -8,7 +8,7 @@ Breve descripción de `enviromentDev`, su propósito y lo que busca lograr. Pued
 
 Descripción general de la estructura del proyecto y sus componentes principales. Por ejemplo:
 
-- **Languages/**: Carpeta que contiene subcarpetas para cada lenguaje de programación utilizado en proyectos, como PHP, Python, Node, Java y C#. Estas carpetas están preparadas para alojar repositorios relacionados con cada lenguaje.
+- **Languages/**: Carpeta que contiene subcarpetas para cada lenguaje de programación utilizado en proyectos, como PHP, Python, Node, Java y C#. Estas carpetas están preparadas para alojar repositorios relacionados con cada lenguaje. Dentro de estas estas las verciones de cada imegen con su respectivo Dockerfile, el cual seria personalizado segun su necesidad.
 - **Projects/**: Directorio que aloja proyectos individuales, cada uno en su propio repositorio, permitiendo una gestión independiente.
 
 ## Cómo Empezar
