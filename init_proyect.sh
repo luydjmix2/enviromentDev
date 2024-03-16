@@ -52,20 +52,6 @@ if [ "$current_dir_name" != "$folderProyects" ]; then
     exit 1
 fi
 
-# Función para verificar y crear la estructura de carpetas para tecnología y versión
-checkAndCreateFolder() {
-  local tech_folder="$PWD/$1"
-  local version_folder="$tech_folder/$2"
-
-  if [ ! -d "$tech_folder" ]; then
-    mkdir -p "$tech_folder"
-  fi
-
-  if [ ! -d "$version_folder" ]; then
-    mkdir -p "$version_folder"
-  fi
-}
-
 # Verificar el sistema operativo
 OS=$(uname)
 USER_HOME=$HOME
@@ -73,7 +59,14 @@ USER_HOME=$HOME
 
 # Verificar y crear la estructura de carpetas para tecnología y versión
 read -p "Ingrese la tecnología (php, node, python, etc.): " tech_name
+
+# Llamar a la función sanitizeInput para limpiar la entrada
+tech_name=$(sanitizeInput "$tech_name")
+
 read -p "Ingrese la versión de $tech_name (ej. 7.4, 10.1.11, 3.2, etc.): " version
+
+# Llamar a la función sanitizeInput para limpiar la entrada
+version=$(sanitizeInput "$version")
 
 checkAndCreateFolder "$tech_name" "$version"
 
