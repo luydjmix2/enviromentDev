@@ -9,11 +9,6 @@ max_length=10
 current_dir_name=$(basename "$PWD")
 # Nombre esperado del directorio desde el cual se debe ejecutar el script
 folderProyects="enviromentDev"
-# Ruta de la estructura del proyecto
-readme_path="$base_path/$camel_case_name/docs/README.md"
-base_path="$PWD/$folderProyects/Proyects/$tech_name/$version"
-# Ruta al README.md dentro de la estructura del proyecto
-readme_path="$base_path/$camel_case_name/docs/README.md"
 # Correo de contacto
 email_contact="luydjmix@gamil.com"
 #definir fecha
@@ -72,6 +67,13 @@ checkAndCreateFolder "$tech_name" "$version"
 
 # Solicitar el nombre del proyecto
 read -p "Ingrese el nombre del proyecto: " project_name
+
+
+# Ruta de la estructura del proyecto
+base_path="$PWD/Proyects/$tech_name/$version"
+# Ruta al README.md dentro de la estructura del proyecto
+readme_path="$base_path/$camel_case_name/docs/README.md"
+
 
 # Eliminar espacios en blanco y acortar palabras
 project_name_formatted=$(formatProjectName "$project_name" "$max_length")
